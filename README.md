@@ -79,7 +79,30 @@ The Key points covered in the projects are as follows
 8. The Main logic to calcualte the rewards is in Service implementation class.
 9. The response reward points will be validated by login to the embedded H2 database.
  
-   
+Enabling https for Rewards Application 
+1.	Generate an SSL certificate in a keystore:
+C:\Users\tarak>keytool -genkeypair -alias rewards -keyalg RSA -keysize 4096 -storetype PKCS12 -keystore keystore.p12 -validity 365 -storepass Welcome!1
+What is your first and last name?
+  [Unknown]:  rewards
+What is the name of your organizational unit?
+  [Unknown]:  techwise
+What is the name of your organization?
+  [Unknown]:  techwise
+What is the name of your City or Locality?
+  [Unknown]:  germantown
+What is the name of your State or Province?
+  [Unknown]:  maryland
+What is the two-letter country code for this unit?
+  [Unknown]:  us
+Is CN=rewards, OU=techwise, O=techwise, L=germantown, ST=maryland, C=us correct?
+  [no]:  yes
+
+Generating 4,096 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 365 days
+        for: CN=rewards, OU=techwise, O=techwise, L=germantown, ST=maryland, C=us
+2.	Store the generated key in the secret store.
+Currently its in the resource folder of the project
+
+3.	Application.properties file is updated with ssl properties 
 
 
 
